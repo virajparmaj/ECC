@@ -108,10 +108,10 @@ jobs:
         shell: bash
         run: |
           case "${{ inputs.package-manager }}" in
-            npm) npm ci ;;
-            pnpm) pnpm install ;;
-            yarn) yarn install --ignore-engines ;;
-            bun) bun install ;;
+            npm) npm ci --ignore-scripts ;;
+            pnpm) pnpm install --ignore-scripts ;;
+            yarn) yarn install --ignore-engines --ignore-scripts ;;
+            bun) bun install --ignore-scripts ;;
             *) echo "Unsupported package manager: ${{ inputs.package-manager }}" && exit 1 ;;
           esac
 
